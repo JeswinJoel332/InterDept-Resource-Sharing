@@ -125,7 +125,7 @@ function App() {
 
   const refreshRequests = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/requests");
+      const response = await fetch("/api/requests")
       const data = await response.json();
 
       if (Array.isArray(data)) {
@@ -141,7 +141,7 @@ function App() {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        `http://localhost:5000/api/requests/${requestId}/approve`,
+        `https://inter-dept-resource-sharing-bkw6.vercel.app/api/requests/${requestId}/approve`,
         {
           method: "PUT",
           headers: {
@@ -169,7 +169,7 @@ function App() {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        `http://localhost:5000/api/requests/${requestId}/reject`,
+        `https://inter-dept-resource-sharing-bkw6.vercel.app/api/requests/${requestId}/reject`,
         {
           method: "PUT",
           headers: {
@@ -219,7 +219,7 @@ function App() {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        "http://localhost:5000/api/events",
+        "https://inter-dept-resource-sharing-bkw6.vercel.app/api/events",
         token
           ? {
               headers: {
@@ -259,7 +259,7 @@ function App() {
       const token = localStorage.getItem("token");
 
       const response = await fetch(
-        `http://localhost:5000/api/events/${eventId}/approve`,
+        `https://inter-dept-resource-sharing-bkw6.vercel.app/api/events/${eventId}/approve`,
         {
           method: "PUT",
           headers: {
@@ -288,7 +288,7 @@ function App() {
   // =========================
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/resources")
+    fetch("https://inter-dept-resource-sharing-bkw6.vercel.app/api/resources")
       .then((response) => response.json())
       .then((data) => {
         setResources(Array.isArray(data) ? data : []);
@@ -401,7 +401,7 @@ function App() {
     }
 
     try {
-      const response = await fetch("http://localhost:5000/api/requests", {
+      const response = await fetch("https://inter-dept-resource-sharing-bkw6.vercel.app/api/requests", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -443,7 +443,7 @@ function App() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth/login",
+        "https://inter-dept-resource-sharing-bkw6.vercel.app/api/auth/login",
         {
           method: "POST",
           headers: {
@@ -487,7 +487,7 @@ function App() {
 
     try {
       const response = await fetch(
-        "http://localhost:5000/api/auth/register",
+        "https://inter-dept-resource-sharing-bkw6.vercel.app/api/auth/register",
         {
           method: "POST",
           headers: {
